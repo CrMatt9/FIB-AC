@@ -10,8 +10,8 @@ Los chinos van a dominar el mundo (y el primo informático también).
 
 ## Mesures:
 
-| Nom | Símbol | 2^x |10^x| Error |
-|---|------|---|-----|-|-|
+| Nom | Símbol | 2^x | 10^x | Error |
+|-|-|-|-|-|
 | Kilo | K | 2^10 -> 1024 | 10^3 -> 1000 | 2,4% |
 
 Depende de dónde esté un KB son 1000 (DISCO) o 1024 (RAM). Los vendedores no te engañan, depende de lo que compres es una medida u otra.
@@ -21,10 +21,8 @@ Depende de dónde esté un KB son 1000 (DISCO) o 1024 (RAM). Los vendedores no t
 > "Cada bombilla consume un huevo... Y un huevo por mucho... Mal rollo."
 
 - Cost `Mida, complexitat i cost social i econòmic`
-- Rendimient
-`1/temps de la feina`
-- Consum
-`Energia consumida per unitat de temps`
+- Rendimient `1/temps de la feina`
+- Consum `Energia consumida per unitat de temps`
 - Fiabilitat `Tolerància a falles i temps per reparar-ho`
 
 ### Cost econòmic:
