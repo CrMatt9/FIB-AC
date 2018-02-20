@@ -80,22 +80,32 @@ Bytes transmesos per unitat de temps.
 ## Temps de resposta vs productivitat:
 
 ## Rendiment d'un processador:
-
+```
 1/rendiment = Temps d'execució =  N \* CPI \* Tcicle
+```
 
-### *Canvis de compilador:*
+#### *Canvis de compilador:*
 Canvia N i CPI
 
-### *Canvis en el llenguatge màquina (LM):*
+#### *Canvis en el llenguatge màquina (LM):*
 Canvia N i compilador
 
-### *Organització:*
+#### *Organització:*
 Canvia CPI i Tcicle (Nombre de cachés...)
 
-### *Tecnologia:*
+#### *Tecnologia:*
 Canvia Tcicle (Mida transistors...)
 
-### _Altres mètriques:_
+#### **Altres mètriques:**
 > **MIPS:** Milions d'instruccios per segon
 >
 > **MFLOPS:** Milions de operacions en coma flotant per segon
+
+## Llei d'Amdahl:
+
+Com millora el sistema amb canvis: més disc, més processadors...
+Pot fer empitjorar una altra part del sistema.
+
+```
+Ganància = Toriginal/Tmillorat = 1 / (1-fm+fm/gm)
+```
