@@ -39,3 +39,63 @@ Addicions, estrès, contacte humà...
 ### Cost humà:
 Salut, dignitat, igualtat...
 > Coltan
+
+## **Tecnologia de fabricació:**
+
+`S'utilitza la tecnologia CMOS`
+
+> La mida d'integració s'ha anat reduint amb el temps.
+>
+> Primer processador: 1971 Intel 4004 -> 10 micrometres
+>
+> 2018 S'esta arribant al límit de mida -> 7 nm
+
+*Transparències*
+
+## Evaluació del cost:
+
+- Factor de yield: Fracció de circuits correctes.
+
+- Cost de un circuit integrat = (Cost del die + cost de test + cost de eempaquetat + test final) / Yeld final (test)
+
+- Cost de die (dau)
+
+*Acabar*
+
+
+## Latència:
+
+Temps des de que solicitem una dada fins a poder-ne disposar.
+
+- Ping a www.unizar.es: `10 ms`
+- Ferrari F1 (a 300 Km/h): `3.600 s`
+- Camión Volvo FH16 (a 100 Km/h): `10.800 s`
+
+## Ample de banda:
+Bytes transmesos per unitat de temps.
+- ADSL a 20 Mb/s: `2,5 MB/s`
+- Ferrari F1 (transportando 1 HD de 1 TB): `277,8 MB/s`
+- Camión Volvo FH16 (transportando 34.000 HD de 1 TB): `3,15 TB/s`
+
+## Temps de resposta vs productivitat:
+
+## Rendiment d'un processador:
+
+1/rendiment = Temps d'execució =  N \* CPI \* Tcicle
+
+### *Canvis de compilador:*
+Canvia N i CPI
+
+### *Canvis en el llenguatge màquina (LM):*
+Canvia N i compilador
+
+### *Organització:*
+Canvia CPI i Tcicle (Nombre de cachés...)
+
+### *Tecnologia:*
+Canvia Tcicle (Mida transistors...)
+
+### _Altres mètriques:_
+> **MIPS:** Milions d'instruccios per segon
+>
+> **MFLOPS:** Milions de operacions en coma flotant per segon
