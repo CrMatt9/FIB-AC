@@ -1,11 +1,5 @@
 # FIB-AC
 
-`"Aquests apunts són una 2^90 DA."`
-
-> Fermín Sánchez
->
-> fermin@ac.upc.edu
-
 Los chinos van a dominar el mundo (y el primo informático también).
 
 ## Mesures:
