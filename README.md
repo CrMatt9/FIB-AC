@@ -14,4 +14,4 @@
 
 `Sense final`
 
-`Punt addicional per problemes`
+`+ punt extra pel laboratori`
