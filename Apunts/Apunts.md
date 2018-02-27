@@ -195,3 +195,17 @@ B (3 bits) Registre Base
 > `CLTD` %EDX%EAX, s'exten el signe de %EAX a %EDX
 >
 > `IDIVL op1` %EAX <- Quocient %EDX <- residu
+
+### Traducció de sentències:
+> Transparències.
+
+### Tipus de dades estructurades:
+
+#### - Vectors:
+```
+V[i] -> @V + i * mida_element
+```
+#### - Matrius:
+```
+A[i][j] -> @iniciA + (i * nº columnes + j) * mida_element
+```
