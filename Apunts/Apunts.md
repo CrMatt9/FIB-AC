@@ -209,3 +209,17 @@ V[i] -> @V + i * mida_element
 ```
 A[i][j] -> @iniciA + (i * nº columnes + j) * mida_element
 ```
+
+### Aliniament de sentències:
+
+- `char (1 byte):` Alineat a 1-byte (no restriccions en la @)
+
+- `short (2 bytes):` Alineat a 2-bytes (el bit més baix de la @ ha de ser 0)
+
+- `int (4 bytes):` Alineat a 4-bytes (els 2 bits més baixos de la @ han de ser ser 00)
+
+- `puntero (4 bytes):` Alineat a 4-bytes
+
+- `double (8 bytes):` Alineat a 4-bytes
+
+-  `long double (12 bytes):` Alineat a 4-bytes
