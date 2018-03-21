@@ -29,8 +29,8 @@ Buscar:
 while:  movl -12(%ebp), %eax    # high
         movl -16(%ebp), %edx    # low
 
-        cmpl %edx, %eax         # high - low -> saltar si l
-        jg fiwhile              # low > high
+        cmpl %edx, %eax         # high - low
+        jl fiwhile              # low > high
 
         pushl 8(%ebp)           # @v
         pushl 20(%ebp)          # Struct X
@@ -55,5 +55,5 @@ if:     cmpl $0, %eax           # if (trobat >= 0) ignorarem el salt
 
 fiwhile: movl -4(%ebp), %eax    # return trobat
          movl %ebp,%esp         # retornem punters
-         popl %ebp         
+         popl %ebp
          ret
