@@ -9,15 +9,14 @@ SRC2 = Main.c Asignar.c Busca.s BuscaElemento.s Insertar.c Intercambiar.c Ordena
 
 
 
-test0: 
-	$(CC) $(CFLAGS) -o Sesion04-0 $(SRC0)
+test0:
+	$(CC) $(CFLAGS) Sesion04-0 $(SRC0)
 
-test1: 
+test1:
 	$(CC) $(CFLAGS) -o Sesion04-1 $(SRC1)
-	
-test2: 
-	$(CC) $(CFLAGS) -o Sesion04-2 $(SRC2)	
+
+test2:
+	$(CC) $(CFLAGS) -o Sesion04-2 $(SRC2)
 
 clean:
 	$(RM) Sesion04-0 Sesion04-1 Sesion04-2
-
