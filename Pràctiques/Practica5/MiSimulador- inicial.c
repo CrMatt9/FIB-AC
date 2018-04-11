@@ -6,28 +6,29 @@
  * */
 
 typedef struct {
-	unsigned int v; 	// Bit validesa
-	int tag;			// Etiqueta guardada a la cache
+	unsigned int v; // Validesa
+	int tag;
 } linia_cache;
 
 linia_cache cache[128];
 
-int hit_count;			// Contador hits
-int miss_count;			// Contador misses
+int hit_count;
+int miss_count;
 
 /* La rutina init_cache es cridada pel programa principal per
  * inicialitzar la cache.
- * La cache es inicialitzada al comenï¿½ar cada un dels tests.
+ * La cache es inicialitzada al començar cada un dels tests.
  * */
 void init_cache ()
 {
     totaltime=0.0;
-
-	int i;
-	for (i = 0; i < 128; i++)
+	/* Escriu aqui el teu codi */
+	int i = 0;
+	for (i; i < 128; i++)
 		cache[i].v = 0; // Posem tots els bits de validesa a 0
 		
 	hit_count = miss_count = 0;
+
 }
 
 /* La rutina reference es cridada per cada referencia a simular */ 
@@ -38,31 +39,31 @@ void reference (unsigned int address)
 	unsigned int linea_mc;
 	unsigned int tag;
 	unsigned int miss;	   // boolea que ens indica si es miss
-	unsigned int replacement;  // boolea que indica si es reemplaï¿½a una linia valida
-	unsigned int tag_out;	   // TAG de la linia reemplaï¿½ada
+	unsigned int replacement;  // boolea que indica si es reemplaça una linia valida
+	unsigned int tag_out;	   // TAG de la linia reemplaçada
 	float t1,t2;		// Variables per mesurar el temps (NO modificar)
 	
 	t1=GetTime();
-	
-	byte = (address & 0x0000001F);				// bit 27 - 31
-	bloque_m = address >> 5;					// bit 0 - 26
-	linea_mc = (address & 0x00000FE0) >> 5;		// bit 20 - 26
-	tag = address >> 12;						// bit 0 - 19
-
+	/* Escriu aqui el teu codi */
 
 	
+	byte = (address & 0x0000001F);
+	bloque_m = (address & 0xFFFFFFE0) >> 5;
+	linea_mc = (address & 0x00000FE0) >> 5;
+	tag = (address & 0xFFFFF000) >> 12;
 	
-	// Dada valida
+	
+	// Si la dada es vàlida 
 	if (cache[linea_mc].v == 1) {
 		
-		// coincideix el TAG --> HIT
+		// coincideix el TAG
 		if (cache[linea_mc].tag == tag) { 
 			++hit_count;
 			miss = 0;
 			replacement = 0;
 		}
 		
-		// NO coincideix el TAG --> MISS
+		// NO coincideix el TAG
 		else {
 			++miss_count;
 			miss = 1;
@@ -72,7 +73,7 @@ void reference (unsigned int address)
 		}
 	}
 	
-	// Dada no valida --> MISS (primer acces)
+	// Dada no vàlida 
 	else {
 		++miss_count;
 		miss = 1;
@@ -83,7 +84,7 @@ void reference (unsigned int address)
         
 	/* La funcio test_and_print escriu el resultat de la teva simulacio
 	 * per pantalla (si s'escau) i comproba si hi ha algun error
-	 * per la referencia actual. Tambï¿½ mesurem el temps d'execuciï¿½
+	 * per la referencia actual. També mesurem el temps d'execució
 	 * */
 	t2=GetTime();
 	totaltime+=t2-t1;
@@ -94,5 +95,7 @@ void reference (unsigned int address)
 /* La rutina final es cridada al final de la simulacio */ 
 void final ()
 {
-	printf("Num d'encerts: %d\nNum de fallades: %d\n", hit_count, miss_count);
+ 	/* Escriu aqui el teu codi */ 
+  
+	 printf("Num de encerts: %d. Num de fallades: %d\n", hit_count, miss_count);
 }
