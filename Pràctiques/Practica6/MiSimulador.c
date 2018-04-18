@@ -1,3 +1,7 @@
+// PRÀCTICA 6 - AC
+// Caché amb Write Through + Write No Allocate
+// Ariadna de Arriba i Marc Casellas
+
 #include "CacheSim.h"
 #include <stdio.h>
 
@@ -24,15 +28,13 @@ void init_cache () {
 	/* Escriu aqui el teu codi */
 
 	int i;
-	for (i = 0; i < 128; i++)
-		cache[i].v = 0; // Posem tots els bits de validesa a 0
+	for (i = 0; i < 128; i++) cache[i].v = 0; // Posem tots els bits de validesa a 0
 		
 }
 
 /* La rutina reference es cridada per cada referencia a simular */ 
 void reference (unsigned int address, unsigned int LE) {
 	
-	// Caché amb Write Through + Write No Allocate
 	
 	unsigned int byte;
 	unsigned int bloque_m; 
@@ -51,6 +53,7 @@ void reference (unsigned int address, unsigned int LE) {
 	esc_mp = 0;
 	mida_lec_mp = 0;
 	mida_esc_mp = 0;
+	replacement = 0;
 
 	/* Escriu aqui el teu codi */
 
@@ -66,7 +69,6 @@ void reference (unsigned int address, unsigned int LE) {
 		if (cache[linea_mc].tag == tag) { 
 			
 			miss = 0;
-			replacement = 0;
 			
 			if (LE == 1) { // Escriptura
 				esc_mp = 1;
@@ -78,7 +80,6 @@ void reference (unsigned int address, unsigned int LE) {
 		// NO coincideix el TAG --> MISS
 		else {
 			miss = 1;
-			
 			
 			if (LE == 0) { // Lectura
 				replacement = 1;
@@ -96,11 +97,7 @@ void reference (unsigned int address, unsigned int LE) {
 	
 	// Dada no valida --> MISS (primer acces)
 	else {
-		
 		miss = 1;
-		replacement = 0;
-		
-		
 		
 		if (LE == 0) { // Lectura
 			lec_mp = 1;
