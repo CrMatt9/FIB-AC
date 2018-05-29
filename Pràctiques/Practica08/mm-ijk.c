@@ -43,6 +43,7 @@ int main() {
   
   if (N > 6) {
     printf("FORMA ijk (%d), Milisegundos = %9f \n\n", N, t2 - t1);
+
   }
   if (N <= 6) {
     /* 

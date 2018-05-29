@@ -3,7 +3,7 @@
 #define N 200000
 #define tam 16*1024*1024
 
-#define CACHE_SIZE 512
+#define CACHE_SIZE 32768
 
 int i, j, limite;
 unsigned char v[tam];
@@ -19,7 +19,7 @@ int main()
 {  int i, j;
 
   for (limite = 1; limite <= 2; limite++) {
-    InitCache(191); 
+    InitCache(0xac065526); 
     for (i=0, j=0; j<N; j++) {
       if ((j % limite)==0) i=0;
       Referencia(&v[i]);     // acceso a v[i] 

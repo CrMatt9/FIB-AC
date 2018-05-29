@@ -77,13 +77,13 @@ void procesar(unsigned char *mata, unsigned char *matb, unsigned char *matc, int
 float GetTime();
 
 void main() {
-  float t1, t2;
-  unsigned char mat1[N][N];
+  float t1, t2, t3, t4;
+  unsigned char mat1[N][N] __attribute__ ((aligned (16)));
   int i;
   char tonto;
-  unsigned char mat2[N][N];
+  unsigned char mat2[N][N] __attribute__ ((aligned (16)));
   char tonto2;
-  unsigned char mat3[N][N];
+  unsigned char mat3[N][N] __attribute__ ((aligned (16)));
   
   tinfo_fichero info;
     
@@ -92,9 +92,11 @@ void main() {
   
   leer(mat1,"in.pgm",&info);
   leer(mat2,"original.pgm",&info);
-  
+ 
+  t3 = GetTime();
   for (i=0;i<M;i++)  
     procesar(&mat1[0][0],&mat2[0][0],&mat3[0][0],N);
+  t4 = GetTime();
   
   escribir(mat3,"out.pgm",info);
   
@@ -103,5 +105,6 @@ void main() {
   
   t2 = GetTime();
   printf("Milisegundos = %9f\n\n", t2 - t1);
+  printf("Milisegundos (rutina procesar) = %9f\n\n", t4 - t3);
 
 }

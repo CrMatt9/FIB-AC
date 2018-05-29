@@ -19,22 +19,22 @@ linia_cache cache[128];
 
 int hit_count;			// Contador hits
 int miss_count;			// Contador misses
+int write_count;
 
 /* La rutina init_cache es cridada pel programa principal per
  * inicialitzar la cache.
  * La cache es inicialitzada al començar cada un dels tests.
  * */
 void init_cache () {
-	/* Escriu aqui el teu codi */
-
 	int i;
 	for (i = 0; i < 128; i++) cache[i].v = 0; // Posem tots els bits de validesa a 0
-		
+	
+	hit_count = miss_count = 0;	
+	write_count = 0;
 }
 
 /* La rutina reference es cridada per cada referencia a simular */ 
 void reference (unsigned int address, unsigned int LE) {
-	
 	
 	unsigned int byte;
 	unsigned int bloque_m; 
@@ -55,31 +55,32 @@ void reference (unsigned int address, unsigned int LE) {
 	mida_esc_mp = 0;
 	replacement = 0;
 
-	/* Escriu aqui el teu codi */
-
 	byte = (address & 0x0000001F);				// bit 27 - 31
 	bloque_m = address >> 5;					// bit 0 - 26
 	linea_mc = (address & 0x00000FE0) >> 5;		// bit 20 - 26
 	tag = address >> 12;						// bit 0 - 19
 
-		// Dada vàlida
+	// Dada vàlida
 	if (cache[linea_mc].v == 1) {
 		
 		// Coincideix el TAG --> HIT
 		if (cache[linea_mc].tag == tag) { 
-			
 			miss = 0;
+			++hit_count;
+			
+			// Lectura no llegeix de memòria principal
 			
 			if (LE == 1) { // Escriptura
 				esc_mp = 1;
 				mida_esc_mp = 1;
+				++write_count;
 			}
-			
-			// Lectura no llegeix de memòria principal
 		}
+		
 		// NO coincideix el TAG --> MISS
 		else {
 			miss = 1;
+			++miss_count;
 			
 			if (LE == 0) { // Lectura
 				replacement = 1;
@@ -91,6 +92,7 @@ void reference (unsigned int address, unsigned int LE) {
 			else { // Escriptura
 				esc_mp = 1;
 				mida_esc_mp = 1;
+				++write_count;
 			}
 		}
 	}
@@ -98,6 +100,7 @@ void reference (unsigned int address, unsigned int LE) {
 	// Dada no valida --> MISS (primer acces)
 	else {
 		miss = 1;
+		++miss_count;
 		
 		if (LE == 0) { // Lectura
 			lec_mp = 1;
@@ -109,9 +112,9 @@ void reference (unsigned int address, unsigned int LE) {
 		else { // Escriptura
 			esc_mp = 1;
 			mida_esc_mp = 1;
+			++write_count;
 		}
 	}
-
 
 
 	/* La funcio test_and_print escriu el resultat de la teva simulacio
@@ -124,8 +127,6 @@ void reference (unsigned int address, unsigned int LE) {
 }
 
 /* La rutina final es cridada al final de la simulacio */ 
-
 void final () {
- 
-	printf("Fi");
+	printf("Hits: %d\nMisses: %d\nEscriptures MP: %d\n", hit_count, miss_count, write_count);
 }

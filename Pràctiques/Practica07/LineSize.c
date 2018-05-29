@@ -17,9 +17,9 @@ int main()
    int refs, misses;
 
 
-  for (step=1; step<=12; step++) {
+  for (step=1; step<=128; step++) {
 	
-    InitCache(191); 
+    InitCache(0xac065526); 
 
     i = 0;
 

@@ -3,7 +3,7 @@
 #define N 200000
 #define tam 16*1024*1024
 
-#define LINE_SIZE 1
+#define LINE_SIZE 128
 
 int i, j, limite;
 unsigned char v[tam];
@@ -19,9 +19,9 @@ int main()
 {  int i, j;
    
 
-  for (limite=256; limite <= 512; limite+=256) {
+  for (limite=256; limite <= 32768; limite+=128) {
 
-    InitCache(191); 
+    InitCache(0xac065526); 
 
     i = 0;
     for (j=0; j<N; j++) {

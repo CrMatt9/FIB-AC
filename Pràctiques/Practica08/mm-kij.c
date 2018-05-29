@@ -42,7 +42,7 @@ int main() {
 
   
   if (N > 6) {
-    printf("FORMA kij (%d), Milisegundos = %9f \n\n", N, t2 - t1);
+    printf("FORMA kij (%d), Milisegundos = %9f \n", N, t2 - t1);
   }
   if (N <= 6) {
     /* 
